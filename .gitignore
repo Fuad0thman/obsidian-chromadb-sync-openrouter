@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build output
+plugin/main.js
+plugin/main.js.map
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local Data & Secrets
+.env
+backend/.env
+chromadb_data/
+backend/chromadb_data/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

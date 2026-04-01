@@ -1,0 +1,21 @@
+{
+  "syncEnabled": true,
+  "debugEnabled": true,
+  "chromaDbUrl": "http://10.10.10.136:8001",
+  "collectionName": "",
+  "enablePeriodicSync": false,
+  "syncIntervalMinutes": 15,
+  "chunkByHeaders": true,
+  "maxChunkSize": 2000,
+  "includeFolders": [
+    "40 Knowledge Base"
+  ],
+  "excludeFolders": [
+    ".obsidian",
+    ".trash"
+  ],
+  "excludePatterns": [],
+  "includeFrontmatter": true,
+  "includeWikilinks": true,
+  "includeTags": true
+}

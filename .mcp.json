@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "obsidian-chromadb": {
+      "type": "sse",
+      "url": "http://nautilus:8004/sse"
+    }
+  }
+}

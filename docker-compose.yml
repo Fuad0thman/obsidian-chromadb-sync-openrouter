@@ -1,0 +1,66 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# Obsidian Sync Stack
+# Separate ChromaDB instance for Obsidian vault
+# ═══════════════════════════════════════════════════════════════════════════
+
+services:
+  # ─────────────────────────────────────────────────────────────────────────
+  # ChromaDB - Vector Database (separate from Open Web UI's instance)
+  # ─────────────────────────────────────────────────────────────────────────
+  chromadb-obsidian:
+    image: chromadb/chroma:latest
+    container_name: chromadb-obsidian
+    ports:
+      - "8003:8000"
+    volumes:
+      - chromadb-obsidian-data:/chroma/chroma
+    restart: always
+    environment:
+      - ANONYMIZED_TELEMETRY=false
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # Obsidian Sync Backend - Ingestion & Query API
+  # ─────────────────────────────────────────────────────────────────────────
+  obsidian-sync:
+    build: ./backend
+    container_name: obsidian-sync-backend
+    ports:
+      - "8002:8002"
+    volumes:
+      - sync-cache:/app/cache
+    environment:
+      - CHROMADB_URL=http://chromadb-obsidian:8000
+      - OLLAMA_URL=http://host.docker.internal:11434
+      - OLLAMA_MODEL=llama3.2:latest
+      - LOG_LEVEL=INFO
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - chromadb-obsidian
+    restart: always
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # MCP Server - SSE Transport for Claude Code
+  # ─────────────────────────────────────────────────────────────────────────
+  obsidian-mcp:
+    build: ./mcp-server
+    container_name: obsidian-mcp-server
+    ports:
+      - "8004:8003"
+    environment:
+      - OBSIDIAN_SYNC_URL=http://obsidian-sync:8002
+      - LOG_LEVEL=INFO
+    depends_on:
+      - obsidian-sync
+    restart: always
+
+volumes:
+  chromadb-obsidian-data:
+  sync-cache:
