@@ -21,6 +21,7 @@ This project is optimized for a "Zero Cost" AI workflow. By combining local embe
 Set these in your `.env` for the best free experience:
 - **`qwen/qwen-2.5-72b-instruct:free`**: Excellent reasoning and large context.
 - **`meta-llama/llama-3.1-8b-instruct:free`**: Fast and reliable for general note queries.
+- **`minimax/minimax-01:free`**: Strong performance on logic and coding tasks.
 - **`google/gemma-2-9b-it:free`**: Great for summarization and creative tasks.
 
 ### Local Free Embeddings
