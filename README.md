@@ -4,11 +4,30 @@ This is a specialized version of the Obsidian ChromaDB Sync project, optimized f
 
 ## 🌟 Key Features
 - **Docker-Free Architecture**: Runs natively on your system using Python 3.11+ and Node.js.
-- **OpenRouter Integration**: Connects to GPT-4o, Claude 3.5, or any other model via OpenRouter API.
+- **OpenRouter Integration**: Connects to any model via OpenRouter API.
+- **Free Model Optimized**: Designed to work perfectly with high-performance free models like **Qwen 2.5** and **Llama 3**.
 - **Local Vector Storage**: Uses **ChromaDB** in persistent mode, stored directly in your project folder.
-- **Local Embeddings**: Generates vectors locally using `sentence-transformers` (all-MiniLM-L6-v2), ensuring your notes aren't sent to the cloud just for indexing.
+- **Local Embeddings**: Generates vectors locally using `sentence-transformers` (all-MiniLM-L6-v2) — **100% Free and Private**.
 - **Hybrid Search**: Combines semantic vector search with BM25 keyword matching for superior retrieval accuracy.
 - **@Mentions**: Directly reference specific files in your AI chat within Obsidian.
+
+---
+
+## 🆓 Free & Open Source Focus
+
+This project is optimized for a "Zero Cost" AI workflow. By combining local embeddings with OpenRouter's free-tier models, you can have a powerful RAG system without a subscription.
+
+### Recommended Free Models (OpenRouter)
+Set these in your `.env` for the best free experience:
+- **`qwen/qwen-2.5-72b-instruct:free`**: Excellent reasoning and large context.
+- **`meta-llama/llama-3.1-8b-instruct:free`**: Fast and reliable for general note queries.
+- **`google/gemma-2-9b-it:free`**: Great for summarization and creative tasks.
+
+### Local Free Embeddings
+The system uses the **`all-MiniLM-L6-v2`** model by default. It runs entirely on your CPU, meaning:
+- **No Cost**: You never pay for "tokens" to index your notes.
+- **Privacy**: Your notes stay on your machine during the vectorization process.
+- **Speed**: Indexing is near-instant for most personal vaults.
 
 ---
 
