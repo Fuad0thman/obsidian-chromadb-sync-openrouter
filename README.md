@@ -126,5 +126,26 @@ You can fine-tune how the AI retrieves your notes by adjusting variables in your
 
 ---
 
+## 🔗 CLI & Automation (Developer Ready)
+
+For power users and developers, this project offers deep integration beyond the Obsidian GUI. See [INTERFACES.md](./INTERFACES.md) for full details on:
+
+### ⚡ PowerShell REST API (Direct Chat/Query)
+You can chat with your notes directly from any terminal using `Invoke-RestMethod`. This allows for custom scripts and AI-powered automation of your knowledge base.
+```powershell
+# Example: Quick AI Summary via Terminal
+$body = @{ collection="mockvault"; query="Summarize Project Alpha"; top_k=5 } | ConvertTo-Json
+$response = Invoke-RestMethod -Uri "http://localhost:8002/query/synthesize" -Method Post -Body $body -ContentType "application/json"
+$response.answer
+```
+
+### 🛠️ Backend Management
+The FastAPI backend provides a suite of endpoints for:
+- **Health Monitoring**: Check server and ChromaDB status.
+- **Collection Management**: Create, list, and delete vector "vaults".
+- **Raw Vector Access**: Perform semantic searches without AI synthesis.
+
+---
+
 ## 🔒 Privacy
 Your notes are processed locally for embeddings. Only the specific chunks relevant to your current question are sent to OpenRouter via an encrypted connection to generate an answer.
