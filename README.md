@@ -122,7 +122,7 @@ You can fine-tune how the AI retrieves your notes by adjusting variables in your
 - `backend/`: FastAPI server and database logic.
 - `plugin/`: Obsidian TypeScript plugin source.
 - `backend/chromadb_data/`: Local folder where your vector DB is saved (Backup this!).
-- `backend/db_cli.py`: A handy terminal tool to manage your database.
+- `backend/db_cli.py`: A handy terminal tool to search your notes and manage your database.
 
 ---
 

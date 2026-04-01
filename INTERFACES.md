@@ -19,8 +19,8 @@ The most integrated way to use this system is directly inside Obsidian.
 
 ---
 
-## 2. Python CLI (Database Management)
-Use this tool to peek into the database, check document counts, and manage collections without a web browser.
+## 2. Python CLI (Query & Management Tool)
+Use this tool to search your notes, peek into the database, and manage collections without needing the backend server or a web browser.
 
 ### How to Run
 Open a terminal in the `backend` directory and run:
@@ -30,9 +30,10 @@ Open a terminal in the `backend` directory and run:
 
 ### Options
 1. **List Collections**: See all "vaults" currently indexed.
-2. **Count items**: See how many chunks a specific vault contains.
-3. **Peek at data**: See the actual text chunks and metadata stored in the DB.
-4. **Delete**: Permanently remove a collection.
+2. **Search / Query (Semantic)**: Perform a local vector search directly from your terminal.
+3. **Count items**: See how many chunks a specific vault contains.
+4. **Peek at data**: See the actual text chunks and metadata stored in the DB.
+5. **Delete**: Permanently remove a collection.
 
 ---
 
