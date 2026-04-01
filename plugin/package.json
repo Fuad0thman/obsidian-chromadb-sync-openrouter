@@ -1,6 +1,6 @@
 {
     "name": "obsidian-chromadb-sync",
-    "version": "0.5.0",
+    "version": "1.0.0",
     "description": "Sync Obsidian vault to ChromaDB for semantic search",
     "main": "main.js",
     "scripts": {
